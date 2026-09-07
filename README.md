@@ -54,6 +54,7 @@ To add a project later, append it to the variable and redeploy. To remove one fr
 | `MCP_TOKEN` | generated | Bearer token required on `/mcp`. The server refuses to start without one. |
 | `PROJECTMEM_PROJECTS` | `default` | Projects to create and register on start. |
 | `PROJECTMEM_HOME` | `/data/home` | Registry and cross-project global memory. Keep it on the volume. |
+| `PROJECTMEM_PROJECTS_DIR` | `/data/projects` | Where project folders are created. Keep it on the volume. |
 | `PORT` | `8000` | Listening port; Railway routes the public domain to it. |
 | `PROJECTMEM_NO_REDACT` | unset | Set to `1` to disable projectmem's secret redaction on logged text. Leave unset. |
 

@@ -4,6 +4,7 @@ Upstream ships the server as a stdio subprocess only. This wraps the same
 server object for Railway: HTTP transport on $PORT, a /health route for the
 healthcheck, and a static bearer token because the endpoint is public.
 """
+import hmac
 import os
 import sys
 
@@ -26,7 +27,7 @@ class BearerAuth(BaseHTTPMiddleware):
     async def dispatch(self, request, call_next):
         if request.url.path == "/health":
             return await call_next(request)
-        if request.headers.get("authorization") != f"Bearer {TOKEN}":
+        if not hmac.compare_digest(request.headers.get("authorization", ""), f"Bearer {TOKEN}"):
             return PlainTextResponse("unauthorized", status_code=401)
         return await call_next(request)
 
