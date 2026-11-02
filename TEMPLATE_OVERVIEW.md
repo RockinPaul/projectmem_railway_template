@@ -1,6 +1,6 @@
 # Deploy and Host projectmem on Railway
 
-projectmem is the open-source memory and judgment layer for AI coding agents. It records what happened while building a project as typed events, issues, attempts, fixes, decisions and notes, and feeds that history back to the agent through a native MCP server, so the agent stops repeating approaches that already failed. This template runs projectmem 0.3.2 as a hosted MCP server with a persistent volume, for agents that do not share a filesystem with you.
+projectmem is the open-source memory and judgment layer for AI coding agents. It records what happened while building a project as typed events, issues, attempts, fixes, decisions and notes, and feeds that history back to the agent through a native MCP server, so the agent stops repeating approaches that already failed. This template runs projectmem 0.3.4 as a hosted MCP server with a persistent volume, for agents that do not share a filesystem with you.
 
 ## About Hosting projectmem
 
@@ -26,8 +26,8 @@ Hosting projectmem on Railway means one small service and one volume. The servic
 ### Implementation Details
 
 - `projectmem`: built from the template repo's Dockerfile (`python:3.12-slim`, git, `projectmem==0.3.4`), healthcheck `/health`, public domain, volume at `/data`.
-- Endpoint: `https://<domain>/mcp` with header `Authorization: Bearer <MCP_TOKEN>`. Claude Code: `claude mcp add --transport http projectmem https://<domain>/mcp --header "Authorization: Bearer <MCP_TOKEN>"`.
-- `PROJECTMEM_PROJECTS` lists the projects to create (default `default`). Tool calls name their project with `project="<name>"`; the first project is the active one for calls that omit it.
+- Endpoint: `https://YOUR-DOMAIN/mcp` with header `Authorization: Bearer YOUR-MCP-TOKEN`. Claude Code: `claude mcp add --transport http projectmem https://YOUR-DOMAIN/mcp --header "Authorization: Bearer YOUR-MCP-TOKEN"`.
+- `PROJECTMEM_PROJECTS` lists the projects to create (default `default`). Tool calls name their project with `project="PROJECT-NAME"`; the first project is the active one for calls that omit it.
 
 Hosted projectmem exposes the MCP tools only. Git hooks, the pre-commit warning, the file watcher, and the dashboards need the repository on the same machine and stay with the local `pip install projectmem`.
 
