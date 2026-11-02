@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11 — projectmem 0.3.4
+
+- `projectmem==0.3.4` (was 0.3.2); `mcp==2.2.0` unchanged (0.3.4 accepts `mcp<3`).
+- Upstream fixes since 0.3.2: the summary no longer grows without bound, commits are filed under the code they change, stale-memory warnings no longer depend on the server's time zone, an unknown issue id no longer breaks later commands, a memory path reached through a symlinked folder is matched, and `precheck` no longer slows down as a project ages.
+
 ## 2026-09 — initial release, projectmem 0.3.2
 
 - One service built from `Dockerfile`: `python:3.12-slim`, git, `projectmem==0.3.2`, `mcp==2.2.0`.

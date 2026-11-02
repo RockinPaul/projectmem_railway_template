@@ -5,7 +5,7 @@ FROM python:3.12-slim
 RUN apt-get update \
  && apt-get install -y --no-install-recommends git \
  && rm -rf /var/lib/apt/lists/* \
- && pip install --no-cache-dir projectmem==0.3.2 mcp==2.2.0
+ && pip install --no-cache-dir projectmem==0.3.4 mcp==2.2.0
 
 WORKDIR /app
 COPY serve.py entrypoint.sh ./

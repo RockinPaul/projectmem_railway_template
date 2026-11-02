@@ -25,7 +25,7 @@ Hosting projectmem on Railway means one small service and one volume. The servic
 
 ### Implementation Details
 
-- `projectmem`: built from the template repo's Dockerfile (`python:3.12-slim`, git, `projectmem==0.3.2`), healthcheck `/health`, public domain, volume at `/data`.
+- `projectmem`: built from the template repo's Dockerfile (`python:3.12-slim`, git, `projectmem==0.3.4`), healthcheck `/health`, public domain, volume at `/data`.
 - Endpoint: `https://<domain>/mcp` with header `Authorization: Bearer <MCP_TOKEN>`. Claude Code: `claude mcp add --transport http projectmem https://<domain>/mcp --header "Authorization: Bearer <MCP_TOKEN>"`.
 - `PROJECTMEM_PROJECTS` lists the projects to create (default `default`). Tool calls name their project with `project="<name>"`; the first project is the active one for calls that omit it.
 
